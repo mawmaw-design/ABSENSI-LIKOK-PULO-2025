@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absensi Likok Pulo UAD 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #e0f7fa 0%, #d1c4e9 100%);
+        overflow: hidden;
+        position: relative;
+      }
+      .glass-container {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .ornament {
+        position: absolute;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(2px);
+      }
+      #ornament-left {
+        left: -80px;
+        top: 50%;
+        transform: translateY(-50%) rotate(15deg);
+        width: 300px;
+      }
+      #ornament-right {
+        right: -90px;
+        top: 50%;
+        transform: translateY(-50%) scaleX(-1) rotate(15deg);
+        width: 300px;
+      }
+      @media (max-width: 768px) {
+        .ornament {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen p-4">
+    <!-- Ornamen Kiri -->
+    <svg
+      id="ornament-left"
+      class="ornament"
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="#059669"
+        d="M48.2,-55.8C61.4,-44.1,70.3,-28.5,72.2,-12.3C74.1,3.9,68.9,20.7,59,34.6C49.1,48.5,34.5,59.5,18.9,65.1C3.3,70.7,-13.4,70.9,-29.4,65.6C-45.4,60.4,-60.7,49.7,-68,35.1C-75.3,20.5,-74.6,2,-70.5,-15.1C-66.4,-32.2,-58.9,-47.8,-47.1,-58.5C-35.3,-69.3,-17.6,-75.2,-0.2,-75C17.3,-74.7,35,-67.5,48.2,-55.8Z"
+        transform="translate(100 100)"
+      />
+    </svg>
+
+    <!-- Ornamen Kanan -->
+    <svg
+      id="ornament-right"
+      class="ornament"
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="#3b82f6"
+        d="M51.9,-54.9C65.8,-43.3,74.5,-26.1,75.4,-8.6C76.2,8.9,69.2,26.8,57.7,41.2C46.3,55.6,30.4,66.5,13.4,69.9C-3.6,73.4,-21.7,69.5,-37.2,60.3C-52.7,51.1,-65.7,36.6,-71.4,19.9C-77.1,3.2,-75.5,-15.7,-67.5,-30.7C-59.5,-45.7,-45.1,-56.9,-29.5,-64.5C-13.8,-72.1,-6.9,-76.1,3.8,-76.9C14.5,-77.7,29,-76,40,-69.5C48.9,-63,51.9,-54.9,51.9,-54.9Z"
+        transform="translate(100 100)"
+      />
+    </svg>
+
+    <main class="w-full max-w-lg mx-auto z-10">
+      <div class="glass-container p-8 rounded-2xl shadow-2xl">
+        <div class="text-center mb-6">
+          <div
+            class="flex justify-center items-center mx-auto w-20 h-20 mb-4 rounded-full"
+            style="background: rgba(255, 255, 255, 0.5)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 text-green-600"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+              <path
+                fill-rule="evenodd"
+                d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <h1 class="text-3xl font-bold text-gray-800">
+            ABSENSI LIKOK PULO UAD 2025
+          </h1>
+          <p class="text-lg font-medium text-gray-700 mt-2">
+            Sanggar Seni Seranai
+          </p>
+          <p class="text-sm text-gray-500">Universitas Ahmad Dahlan</p>
+        </div>
+
+        <div
+          id="message-container"
+          class="hidden p-4 rounded-lg text-center font-medium mb-4"
+        ></div>
+
+        <form id="attendance-form" class="space-y-6">
+          <div>
+            <label
+              for="name-select"
+              class="block text-sm font-medium text-gray-700 mb-2"
+              >Pilih Nama Anda:</label
+            >
+            <select
+              id="name-select"
+              name="name"
+              required
+              class="block w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition duration-150 ease-in-out"
+            >
+              <option value="" disabled selected>-- Pilih Nama --</option>
+              <option value="Raisul Dafa">Raisul Dafa</option>
+              <option value="Ar Joni Amin">Ar Joni Amin</option>
+              <option value="Eggy Hadi Madani">Eggy Hadi Madani</option>
+              <option value="Alil Fazillah">Alil Fazillah</option>
+              <option value="Ajia Bonia">Ajia Bonia</option>
+              <option value="Dhahirusyifa">Dhahirusyifa</option>
+              <option value="Arizal">Arizal</option>
+              <option value="M. Raffi">M. Raffi</option>
+              <option value="Fathin Jhon">Fathin Jhon</option>
+              <option value="Lainnya">Lainnya (Isi Manual)</option>
+            </select>
+          </div>
+
+          <div id="other-name-container" class="hidden">
+            <label
+              for="other-name"
+              class="block text-sm font-medium text-gray-700 mb-2"
+              >Nama Lengkap:</label
+            >
+            <input
+              type="text"
+              id="other-name"
+              name="other-name"
+              class="block w-full px-4 py-3 bg-gray-50/80 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition duration-150 ease-in-out"
+            />
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              id="submit-button"
+              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-lg font-bold text-white bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span id="button-text">KIRIM ABSENSI</span>
+              <svg
+                id="button-spinner"
+                class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      // PENTING: Ganti URL di bawah ini dengan URL Web App dari Google Apps Script Anda.
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycby0raZhsH73nl3RezgCsjCZWCVUkq2is2qg3kxsUolFWoxiJQvWEUjWEOLLT7W1kIHc/exec";
+
+      const form = document.getElementById("attendance-form");
+      const nameSelect = document.getElementById("name-select");
+      const otherNameContainer = document.getElementById(
+        "other-name-container"
+      );
+      const otherNameInput = document.getElementById("other-name");
+      const messageContainer = document.getElementById("message-container");
+      const submitButton = document.getElementById("submit-button");
+      const buttonText = document.getElementById("button-text");
+      const buttonSpinner = document.getElementById("button-spinner");
+
+      // Pengecekan URL saat halaman dimuat
+      window.addEventListener("DOMContentLoaded", () => {
+        if (
+          scriptURL ===
+            "https:https://script.google.com/macros/s/AKfycby0raZhsH73nl3RezgCsjCZWCVUkq2is2qg3kxsUolFWoxiJQvWEUjWEOLLT7W1kIHc/exec" ||
+          scriptURL === ""
+        ) {
+          submitButton.disabled = true;
+          showMessage(
+            "URL Aplikasi Web belum diatur. Silakan edit file HTML ini dan masukkan URL yang benar.",
+            "error"
+          );
+        }
+      });
+
+      nameSelect.addEventListener("change", function () {
+        if (this.value === "Lainnya") {
+          otherNameContainer.classList.remove("hidden");
+          otherNameInput.required = true;
+        } else {
+          otherNameContainer.classList.add("hidden");
+          otherNameInput.required = false;
+        }
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        setLoading(true);
+
+        let finalName = nameSelect.value;
+        if (finalName === "Lainnya") {
+          finalName = otherNameInput.value.trim();
+        }
+
+        if (!finalName) {
+          showMessage("Nama tidak boleh kosong.", "error");
+          setLoading(false);
+          return;
+        }
+
+        fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify({ name: finalName }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            showMessage(
+              "Absensi Anda berhasil direkam. Terima kasih!",
+              "success"
+            );
+            form.reset();
+            otherNameContainer.classList.add("hidden");
+          })
+          .catch((error) => {
+            console.error("Error!", error.message);
+            showMessage("Terjadi kesalahan. Coba lagi nanti.", "error");
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      });
+
+      function setLoading(isLoading) {
+        if (isLoading) {
+          submitButton.disabled = true;
+          buttonText.classList.add("hidden");
+          buttonSpinner.classList.remove("hidden");
+        } else {
+          submitButton.disabled = false;
+          buttonText.classList.remove("hidden");
+          buttonSpinner.classList.add("hidden");
+        }
+      }
+
+      function showMessage(message, type) {
+        messageContainer.textContent = message;
+        messageContainer.classList.remove(
+          "hidden",
+          "bg-green-100",
+          "text-green-800",
+          "bg-red-100",
+          "text-red-800"
+        );
+
+        if (type === "success") {
+          messageContainer.classList.add("bg-green-100", "text-green-800");
+        } else if (type === "error") {
+          messageContainer.classList.add("bg-red-100", "text-red-800");
+        }
+
+        setTimeout(() => {
+          messageContainer.classList.add("hidden");
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
